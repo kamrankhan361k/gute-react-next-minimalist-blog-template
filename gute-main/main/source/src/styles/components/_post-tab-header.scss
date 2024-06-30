@@ -1,0 +1,80 @@
+.news-block__header {
+  font-size: 18px;
+  display: flex;
+  margin-bottom: emCal(18, 48);
+  align-items: center;
+  @include mq(sm) {
+    flex-direction: column;
+    .header__controller__title {
+      margin-bottom: emCal(18, 15);
+    }
+  }
+  .header__controller__title {
+    flex: 1;
+    .center-line-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: emCal(16, 40);
+      font-size: 16px;
+      &:after {
+        content: '';
+        height: 1px;
+        flex-grow: 1;
+        display: block;
+        background-color: setSchemaColor(gray, light);
+      }
+      h5 {
+        @include typo($fsz: emCal(16, 18), $fw: 600, $lh: 1, $up: true);
+        margin-right: 15px;
+      }
+      &.-large {
+        h5 {
+          font-size: emCal(16, 26);
+        }
+      }
+      &.-medium {
+        h5 {
+          font-size: emCal(16, 18);
+        }
+      }
+      &.-mb-0 {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .header__controller {
+    display: flex;
+    &__tab {
+      @include mq(sm) {
+        text-align: center;
+      }
+      .tab-item {
+        @include link(setSchemaColor(gray), setColor(title), $fsz: emCal(18, 15), $cpt: true);
+        display: inline-block;
+        margin: 0 emCal(18, 10);
+        @include mq(sm) {
+          line-height: emCal(18, 40);
+        }
+        &.active {
+          color: setColor(primary);
+        }
+      }
+    }
+  }
+
+  $theme: 'secondary', 'third', 'fourth';
+
+  @each $color in $theme {
+    &.-theme--#{$color} {
+      .header__controller {
+        &__tab {
+          .tab-item {
+            &.active {
+              color: setColor($color);
+            }
+          }
+        }
+      }
+    }
+  }
+}

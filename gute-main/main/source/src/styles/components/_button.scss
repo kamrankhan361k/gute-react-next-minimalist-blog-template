@@ -1,0 +1,168 @@
+//Button sizes
+$buttonSize: (
+  small: (
+    height: remCal(40),
+    hzPadding: remCal(15),
+  ),
+  regular: (
+    height: remCal(45),
+    hzPadding: remCal(20),
+  ),
+  large: (
+    height: remCal(50),
+    hzPadding: remCal(30),
+  ),
+);
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  transition: $transition;
+  background-color: transparent;
+  padding: 0;
+  font-size: emCal(16, 14);
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  span {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .btn-preffix {
+      margin-right: emCal(14, 10);
+    }
+  }
+  @each $name, $val in $weight {
+    &.-weight--#{$name} {
+      span {
+        font-weight: $val;
+      }
+    }
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.-variant--contained {
+    height: emCal(14, 30);
+    padding: 0 emCal(14, 15);
+    @each $name, $val in $buttonSize {
+      &.-size--#{$name} {
+        height: map-get($val, 'height');
+        padding-left: map-get($val, 'hzPadding');
+        padding-right: map-get($val, 'hzPadding');
+      }
+    }
+    @each $name, $val in $colors {
+      &.-color--#{$name} {
+        background-color: setColor($name);
+        @if $name == 'light' {
+          color: setSchemaColor(gray, medium);
+        } @else {
+          color: #fff;
+        }
+        &:hover {
+          background-color: darken(setColor($name), 10%);
+        }
+      }
+    }
+  }
+  &.-variant--outline {
+    padding: 0 emCal(14, 15);
+    @each $name, $val in $buttonSize {
+      &.-size--#{$name} {
+        height: map-get($val, 'height');
+        padding-left: map-get($val, 'hzPadding');
+        padding-right: map-get($val, 'hzPadding');
+      }
+    }
+    @each $name, $val in $colors {
+      &.-color--#{$name} {
+        border: 1px solid setColor($name);
+        color: setColor($name);
+        &:hover {
+          background-color: setColor($name);
+          color: #fff;
+        }
+      }
+    }
+  }
+  &.-variant--link {
+    padding: 0;
+    border: 0;
+    @each $name, $val in $colors {
+      &.-color--#{$name} {
+        color: setSchemaColor(gray, dark);
+        &:hover {
+          color: setColor($name);
+        }
+      }
+    }
+  }
+  &.-variant--underline {
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    padding-bottom: emCal(14, 5);
+    &.-shape--circle,
+    &.-shape--round {
+      border-radius: 0;
+    }
+    @each $name, $val in $colors {
+      &.-color--#{$name} {
+        color: setSchemaColor(gray);
+        transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+        &:hover {
+          color: setColor($name);
+          &:after {
+            left: 0;
+          }
+        }
+        &:after,
+        &:before {
+          content: '';
+          display: block;
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+        }
+        &:before {
+          height: emCal(14, 2);
+          left: 0;
+          background-color: setColor($name);
+        }
+        &:after {
+          transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+          height: emCal(14, 2);
+          left: -100%;
+          background-color: darken(setColor($name), 20%);
+        }
+      }
+    }
+  }
+
+  &.-fullwidth {
+    width: 100%;
+  }
+
+  &.-shape--circle {
+    border-radius: 999px;
+  }
+  &.-shape--round {
+    border-radius: emCal(14, 5);
+  }
+
+  &.-disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: not-allowed;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+}

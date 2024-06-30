@@ -1,0 +1,18 @@
+.quantity-controller {
+  padding: 0 emCal(16, 20);
+  border: 1px solid setColor(primary);
+  display: flex;
+  align-items: center;
+  margin-right: emCal(16, 10);
+  height: emCal(16, 50);
+  input {
+    border: 0;
+    text-align: center;
+    max-width: emCal(16, 60);
+    background-color: transparent;
+    @include typo($fsz: emCal(16, 15), $fw: 600);
+  }
+  .btn {
+    padding: 0;
+  }
+}

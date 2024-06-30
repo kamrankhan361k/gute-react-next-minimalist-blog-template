@@ -1,0 +1,10 @@
+.blog-mansonry-one-column {
+  &-content {
+    .post-card {
+      .card-cover {
+        max-height: remCal(500);
+        align-items: center;
+      }
+    }
+  }
+}

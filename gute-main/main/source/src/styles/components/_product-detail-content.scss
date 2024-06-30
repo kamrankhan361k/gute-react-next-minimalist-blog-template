@@ -1,0 +1,100 @@
+.product-detail-content {
+  @include mq(md) {
+    padding-left: 0;
+  }
+  &__top {
+    border-bottom: 1px solid setSchemaColor(gray, light);
+    margin-bottom: emCal(16, 40);
+    h1 {
+      @include typo($fsz: emCal(16, 30), $lh: emCal(30, 48), $fw: 700);
+    }
+    .brand {
+      @include typo($fsz: emCal(16, 14), $lh: emCal(14, 26));
+    }
+    .rate {
+      margin-bottom: emCal(16, 30);
+      .star {
+        display: inline-block;
+        margin-right: emCal(16, 10);
+        i {
+          font-size: emCal(16, 12);
+          color: #e3c01c;
+        }
+      }
+      span {
+        @include typo($fsz: emCal(16, 12), $color: setColor(subTitle));
+      }
+    }
+    .price {
+      display: flex;
+      align-items: center;
+      margin-bottom: emCal(16, 40);
+      h3 {
+        @include typo($fsz: emCal(16, 30), $fw: 700);
+        margin-right: emCal(30, 15);
+      }
+      .discount {
+        @include typo($fsz: emCal(16, 18), $fw: 400, $color: #b1b0b0);
+        text-decoration: line-through;
+      }
+    }
+    .description {
+      @include typo($fsz: emCal(16, 14), $fw: 400, $lh: emCal(14, 24));
+      margin-bottom: emCal(14, 30);
+    }
+    .product-controller {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: emCal(16, 40);
+      .quantity {
+        display: flex;
+        align-items: center;
+        span {
+          @include typo($fsz: emCal(16, 15));
+          margin-right: emCal(15, 10);
+        }
+        .quantity-controller {
+          border-radius: emCal(16, 5);
+          .btn {
+            padding: 0;
+          }
+        }
+        @include mq(md) {
+          margin-bottom: emCal(14, 15);
+        }
+      }
+      .btn:not(.quantity .btn) {
+        padding: 0 emCal(14, 20);
+        height: emCal(14, 50);
+        margin-right: emCal(14, 10);
+        @include mq(md) {
+          margin-bottom: emCal(14, 15);
+        }
+      }
+      .btn:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  &__bottom {
+    .type-block {
+      display: flex;
+      margin-bottom: emCal(16, 20);
+      &:last-child {
+        margin-bottom: 0;
+      }
+      p {
+        @include typo($fsz: emCal(16, 15), $lh: emCal(15, 26));
+      }
+      .type-name {
+        flex: 1 1 30%;
+        max-width: 30%;
+        font-weight: 400;
+      }
+      .type-detail {
+        flex: 1 1 70%;
+        max-width: 70%;
+      }
+    }
+  }
+}

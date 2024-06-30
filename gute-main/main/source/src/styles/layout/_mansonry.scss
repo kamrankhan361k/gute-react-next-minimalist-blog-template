@@ -1,0 +1,105 @@
+.blog-inline__mansonry {
+  font-size: 18px;
+  &-content {
+    margin-bottom: emCal(18, 40);
+    .grid-item {
+      width: calc(25% - 15px);
+      margin-bottom: emCal(18, 20);
+      .post-card {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      &.-long {
+        height: 388px;
+      }
+      &.-small {
+        height: 188px;
+      }
+      @include mq(lg) {
+        width: calc(33.3333% - 13px) !important;
+      }
+      @include mq(md) {
+        width: calc(50% - 10px) !important;
+      }
+      @include mq(sm) {
+        width: 100% !important;
+      }
+    }
+  }
+
+  &-content__wide {
+    $big: 33.3333%;
+    $small: 16.66667%;
+    width: 100%;
+    margin-bottom: emCal(16, 30);
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .grid-sizer,
+    .grid-item {
+      width: $small;
+    }
+    .grid-item {
+      float: left;
+      margin-bottom: emCal(16, 16);
+      padding: 0 emCal(16, 10);
+      .post-card {
+        height: 100%;
+      }
+      &.-large {
+        height: 848px;
+        width: $big;
+      }
+      &.-big {
+        height: 414px;
+        width: $big;
+      }
+      &.-long {
+        height: 414px;
+      }
+      &.-small {
+        height: 197px;
+      }
+    }
+
+    @include mq(xxl) {
+      .grid-item {
+        &.-large,
+        &.-big,
+        &.-long,
+        &.-small {
+          height: auto;
+          width: 33.333333%;
+        }
+      }
+    }
+    @include mq(lg) {
+      .grid-item {
+        &.-large,
+        &.-big,
+        &.-long,
+        &.-small {
+          height: auto;
+          width: 50%;
+        }
+      }
+    }
+    @include mq(sm) {
+      .grid-item {
+        &.-large,
+        &.-big {
+          height: auto;
+          width: 100%;
+        }
+        &.-long,
+        &.-small {
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

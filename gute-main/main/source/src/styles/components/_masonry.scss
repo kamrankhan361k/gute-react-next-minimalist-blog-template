@@ -1,0 +1,14 @@
+.masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: emCal(16, -20);
+  width: auto;
+  &_column {
+    padding-left: emCal(16, 20);
+    background-clip: padding-box;
+    & > div {
+      margin-bottom: emCal(16, 20);
+    }
+  }
+}

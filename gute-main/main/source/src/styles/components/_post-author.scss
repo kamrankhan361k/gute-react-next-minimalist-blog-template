@@ -1,0 +1,51 @@
+.post-author {
+  margin-bottom: emCal(16, 60);
+  text-align: center;
+  background-color: setColor(light);
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    height: emCal(16, 60);
+    z-index: 0;
+  }
+  &-avatar {
+    height: 120px;
+    width: 120px;
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: emCal(22, 25);
+    position: inherit;
+    z-index: 1;
+    img {
+      @include imgCenter();
+    }
+  }
+  &-info {
+    padding: 0 emCal(16, 60) emCal(16, 30);
+    @include mq(md) {
+      padding: 0 emCal(16, 30) emCal(16, 20);
+    }
+    h5 {
+      @include typo($fsz: emCal(16, 22), $fw: 700);
+      margin-bottom: emCal(22, 10);
+    }
+    p {
+      @include typo($fsz: emCal(16, 15), $fw: 400, $lh: emCal(15, 27));
+      margin-bottom: emCal(15, 10);
+    }
+    .social-media {
+      a {
+        @include link(setColor(title), setColor(primary), $fsz: 1em);
+        &:not(:last-child) {
+          margin-right: emCal(16, 10);
+        }
+      }
+    }
+  }
+}

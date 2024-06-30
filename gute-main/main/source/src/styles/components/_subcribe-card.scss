@@ -1,0 +1,77 @@
+.subcribe-card {
+  font-size: 16px;
+  padding: emCal(16, 40);
+  background-color: setColor(light);
+  border-radius: emCal(16, 5);
+  h5 {
+    @include typo($fsz: emCal(16, 18), $fw: 700, $up: true);
+    margin-bottom: emCal(18, 30);
+  }
+  p {
+    @include typo($fsz: emCal(16, 15), $lh: emCal(15, 26), $fw: 400);
+    margin-bottom: emCal(15, 15);
+  }
+  .input-group {
+    margin-bottom: emCal(16, 20);
+    input {
+      @include input($pd: emCal(16, 15) emCal(16, 20));
+      border-radius: emCal(16, 5);
+    }
+    span {
+      @include typo($fsz: emCal(16, 14), $color: setColor(error), $fw: 300);
+      margin-top: emCal(16, 10);
+      display: block;
+      text-align: center;
+    }
+  }
+  .btn.-normal {
+    display: block;
+    padding: emCal(16, 15);
+  }
+  $theme: 'secondary', 'third', 'fourth';
+
+  &.-colored {
+    background-color: setColor(primary);
+    h5 {
+      color: #fff;
+    }
+    p {
+      color: #fff;
+    }
+    .input-group {
+      input {
+        border-color: #fff;
+        color: #fff;
+        background-color: setColor(primary);
+      }
+    }
+    .btn {
+      background-color: #fff;
+      color: setColor(primary);
+      &:hover {
+        background-color: rgba(#fff, 0.8);
+        color: setColor(primary);
+      }
+    }
+  }
+
+  @each $color in $theme {
+    &.-theme--#{$color} {
+      &.-colored {
+        background-color: setColor($color);
+        .input-group {
+          input {
+            background-color: setColor($color);
+            color: #fff;
+          }
+        }
+        .btn {
+          color: setColor($color);
+          &:hover {
+            color: setColor($color);
+          }
+        }
+      }
+    }
+  }
+}

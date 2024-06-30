@@ -1,0 +1,49 @@
+.blog-sidebar {
+  font-size: 16px;
+  padding-left: emCal(16, 30);
+  @include mq(lg) {
+    padding-left: 0;
+  }
+  @include mq(md) {
+    margin-bottom: emCal(16, 50);
+  }
+  @include mq(sm) {
+    font-size: 15px;
+  }
+  .blog-sidebar-section {
+    margin-bottom: remCal(60);
+    &__title {
+      display: flex;
+      align-items: center;
+      margin-bottom: emCal(16, 40);
+      font-size: 16px;
+      h5 {
+        @include typo($fsz: emCal(16, 18), $up: true);
+        margin-right: emCal(16, 15);
+      }
+      &:after {
+        content: '';
+        height: 1px;
+        flex-grow: 1;
+        display: block;
+        background-color: #e1e1e1;
+      }
+    }
+    &.-category {
+      .category {
+        margin-bottom: emCal(16, 15);
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    &.-trending-post {
+      .trending-post {
+        margin-bottom: emCal(16, 30);
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+/***************************
+	Post footer
+***************************/
+.post-comment {
+  &-detail {
+    margin-bottom: emCal(16, 60);
+    .comment-item {
+      margin-bottom: emCal(16, 40);
+      &__avatar {
+        height: emCal(16, 90);
+        width: emCal(16, 90);
+        float: left;
+        margin-right: emCal(16, 25);
+        border-radius: 999px;
+        overflow: hidden;
+        img {
+          @include imgCenter;
+        }
+      }
+      &__content {
+        &-header {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: emCal(16, 20);
+          h5 {
+            @include typo($fsz: emCal(16, 18), $cpt: true, $fw: 600);
+          }
+          .data {
+            p {
+              @include typo($fsz: emCal(16, 13), $cpt: true, $color: setColor(regular));
+              display: inline-block;
+              &:not(:last-child) {
+                margin-right: emCal(13, 20);
+              }
+              i {
+                margin-right: emCal(16, 10);
+              }
+            }
+          }
+          @include mq(sm) {
+            flex-direction: column;
+            h5 {
+              margin-bottom: emCal(16, 10);
+            }
+          }
+        }
+        p {
+          @include typo($fsz: emCal(16, 15), $lh: emCal(15, 27), $fw: 400);
+        }
+      }
+      &__reply {
+        padding-left: emCal(16, 115);
+        margin-top: emCal(16, 40);
+        .comment-item {
+          margin-bottom: 0;
+        }
+      }
+      @include mq(sm) {
+        .comment-item__reply {
+          padding-left: emCal(16, 30);
+        }
+      }
+    }
+  }
+  &-form {
+    .input-group {
+      margin-bottom: emCal(16, 20);
+      input {
+        @include input($pd: emCal(16, 15) emCal(16, 20), $fsz: emCal(16, 14), $brd: emCal(16, 5));
+      }
+      textarea {
+        @include textarea($pd: emCal(16, 15) emCal(16, 20), $fsz: emCal(16, 14), $brd: emCal(16, 5));
+      }
+      .error {
+        @include typo($color: setColor(error), $fw: 300, $fsz: emCal(16, 14));
+        display: block;
+        margin-top: emCal(14, 10);
+      }
+    }
+  }
+  &-title {
+    @include typo($fsz: emCal(16, 22), $up: true);
+    text-align: center;
+    position: relative;
+    margin-bottom: emCal(16, 40);
+    span {
+      background-color: #fff;
+      padding: 0 emCal(16, 15);
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: emCal(22, 10);
+      height: 1px;
+      background-color: setSchemaColor(gray, light);
+      z-index: -1;
+    }
+  }
+}

@@ -1,0 +1,327 @@
+.news-block {
+  &.-feature-left {
+    .news-block-post-item {
+      .card-cover {
+        align-items: center;
+      }
+      &.-big {
+        .card-cover {
+          max-height: emCal(16, 380);
+        }
+      }
+      &.-small {
+        .card-cover {
+          max-height: emCal(16, 175);
+        }
+      }
+    }
+  }
+
+  &.-feature-top {
+    .news-block-post-item {
+      .card-cover {
+        align-items: center;
+      }
+      &.-large {
+        .card-cover {
+          max-height: emCal(16, 390);
+        }
+      }
+      &.-small {
+        .card-cover {
+          max-height: emCal(16, 245);
+        }
+      }
+    }
+  }
+
+  &.-feature-top-regular {
+    .news-block-post-item {
+      .card-cover {
+        align-items: center;
+      }
+      &.-big {
+        .card-cover {
+          max-height: emCal(16, 375);
+        }
+        .card-content {
+          &__title {
+            font-size: emCal(16, 22);
+          }
+        }
+      }
+      &.-small {
+        .card-cover {
+          height: emCal(16, 230);
+        }
+        .card-content {
+          &__title {
+            font-size: emCal(16, 18);
+          }
+        }
+      }
+    }
+  }
+
+  &.-feature-interleaved-regular {
+    .news-block-post-item {
+      .card-cover {
+        align-items: center;
+      }
+      &.-big {
+        .card-cover {
+          max-height: emCal(16, 375);
+        }
+        .card-content {
+          &__title {
+            font-size: emCal(16, 22);
+          }
+        }
+      }
+      &.-small {
+        .card-cover {
+          height: emCal(16, 230);
+        }
+        .card-content {
+          &__title {
+            font-size: emCal(16, 18);
+          }
+        }
+      }
+    }
+  }
+
+  &.-two-feature-top {
+    .news-block-post-item {
+      .card-cover {
+        align-items: center;
+      }
+      &.-big {
+        .card-cover {
+          height: emCal(16, 230);
+        }
+        .card-content {
+          &__title {
+            font-size: emCal(16, 22);
+          }
+        }
+      }
+      &.-small {
+        .card-cover {
+          height: emCal(16, 140);
+          @include mq(md) {
+            height: emCal(16, 230);
+          }
+        }
+        .card-content {
+          &__title {
+            font-size: emCal(16, 18);
+          }
+        }
+      }
+    }
+  }
+
+  &.-grid-two-col {
+    .post-card {
+      .card-cover {
+        max-height: 180px;
+        align-items: center;
+      }
+      .card-content {
+        &__description {
+          margin-top: emCal(16, 10);
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &.-row {
+    .post-card {
+      width: 100%;
+      .card-cover {
+        flex: 1 1 40%;
+        max-width: 40%;
+        align-items: center;
+        height: emCal(16, 210);
+      }
+      .card-content {
+        flex: 1 1 60%;
+        max-width: 60%;
+      }
+    }
+  }
+
+  &.-feature-center {
+    .news-block-post-item {
+      .card-cover {
+        align-items: center;
+      }
+      &.-big {
+        .card-cover {
+          height: emCal(16, 380);
+        }
+        .card-content {
+          &__title {
+            font-size: emCal(16, 22);
+          }
+        }
+      }
+      &.-small {
+        .card-cover {
+          height: emCal(16, 175);
+          @include mq(lg) {
+            height: emCal(16, 250);
+          }
+        }
+        .card-content {
+          &__title {
+            font-size: emCal(16, 18);
+          }
+        }
+      }
+    }
+  }
+
+  .news-block__tab {
+    font-size: 16;
+    &:hover {
+      .slick-arrow {
+        opacity: 1;
+      }
+    }
+    .slick-arrow {
+      background-color: #bebebe;
+      border: 0;
+      color: setColor(regular);
+      font-size: 1em;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 15px;
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+      @include prefix(transition, $transition);
+
+      &.slick-next {
+        right: emCal(16, 0);
+      }
+      &.slick-prev {
+        left: emCal(16, 0);
+      }
+      @include mq(xl) {
+        opacity: 1;
+        &.slick-next {
+          right: 0;
+        }
+        &.slick-prev {
+          left: 0;
+        }
+      }
+    }
+    .news-block__tab__item {
+      display: none;
+      @include mq(md) {
+        font-size: 15px;
+      }
+      &.active {
+        display: block;
+      }
+      .news-block__content {
+        color: red;
+        .news-block__content__slide {
+          .post-card {
+            &.-large {
+              @include mq(lg) {
+                display: none;
+              }
+              @include mq(sm) {
+                display: none;
+              }
+            }
+          }
+        }
+        &.-default {
+          .news-block__content__slide {
+            .post-card {
+              margin-bottom: emCal(16, 30);
+              &.-large {
+                .card__cover {
+                  // height: emCal(16, 380);
+                  align-items: center;
+                }
+              }
+              &.-small {
+                .card__cover {
+                  // height: emCal(16, 180);
+                  align-items: center;
+                }
+                .card__content {
+                  .card__content-title {
+                    font-size: emCal(16, 18);
+                    line-height: emCal(18, 22);
+                  }
+                }
+              }
+            }
+          }
+        }
+        &.-hoz {
+          .news-block__content__slide {
+            .post-card {
+              &.-large {
+                margin-bottom: emCal(16, 30);
+              }
+              &.-small {
+                .card__cover {
+                  // height: emCal(16, 247);
+                  align-items: center;
+                }
+                @include mq(md) {
+                  margin-bottom: emCal(16, 30);
+                }
+              }
+            }
+          }
+        }
+        &.-hoz-small {
+          .news-block__content__slide {
+            .post-card {
+              &.-small {
+                margin-bottom: emCal(16, 30);
+                .card__cover {
+                  // height: emCal(16, 180);
+                  align-items: center;
+                }
+                .card__content {
+                  &-title {
+                    font-size: emCal(16, 18);
+                    margin-bottom: emCal(16, 10);
+                  }
+                  &-description {
+                    margin-top: emCal(16, 10);
+                    margin-bottom: 0;
+                  }
+                  @include mq(sm) {
+                    &-info {
+                      flex-direction: column;
+                      align-items: flex-start;
+                      .info__time {
+                        margin-right: 0;
+                        margin-bottom: emCal(16, 5);
+                      }
+                    }
+                  }
+                }
+                @include mq(md) {
+                  margin-bottom: emCal(16, 30);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.empty-skeleton {
+  text-align: center;
+  padding: emCal(16, 50) 0;
+  h2 {
+    @include typo($fsz: emCal(16, 22));
+    margin-bottom: emCal(22, 15);
+  }
+  p {
+    @include typo($fw: 300, $color: setSchemaColor(gray, regular));
+  }
+  &-extra {
+    margin-top: emCal(16, 25);
+  }
+}

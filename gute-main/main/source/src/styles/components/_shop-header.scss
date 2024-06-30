@@ -1,0 +1,47 @@
+.shop-header {
+  @include flexAlign($vertical: center, $horizontal: space-between);
+  margin-bottom: emCal(16, 40);
+
+  h5 {
+    @include typo($fsz: 15, $fw: 400);
+    span {
+      font-weight: 600;
+      margin-right: emCal(15, 10);
+    }
+  }
+  @include mq(md) {
+    flex-direction: column;
+  }
+  @include mq(sm) {
+    h5 {
+      margin-bottom: emCal(16, 15);
+    }
+  }
+  .product-filter {
+    display: flex;
+
+    .select-group {
+      span {
+        @include typo($fsz: emCal(16, 15));
+      }
+      select {
+        border: 0;
+        cursor: pointer;
+        @include typo($fsz: emCal(16, 15), $fw: 700);
+      }
+      &:first-child {
+        margin-right: emCal(16, 30);
+      }
+    }
+    @include mq(md) {
+      flex-direction: column;
+      align-items: center;
+      .select-group {
+        &:first-child {
+          margin-right: 0;
+          margin-bottom: emCal(16, 15);
+        }
+      }
+    }
+  }
+}

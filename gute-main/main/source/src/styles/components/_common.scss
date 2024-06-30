@@ -1,0 +1,12 @@
+.loading-container {
+  text-align: center;
+  padding: 100px 0;
+  color: setColor(primary);
+  $theme: 'secondary', 'third', 'fourth';
+
+  @each $color in $theme {
+    .-theme--#{$color} {
+      color: setColor($color);
+    }
+  }
+}

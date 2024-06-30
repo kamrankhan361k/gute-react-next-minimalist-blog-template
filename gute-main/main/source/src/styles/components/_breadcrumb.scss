@@ -1,0 +1,18 @@
+.breadcrumb {
+  margin-bottom: emCal(16, 50);
+  &-item {
+    display: inline-block;
+    &-icon {
+      margin-right: emCal(16, 15);
+    }
+    a {
+      @include link($fsz: 1em);
+    }
+    &:not(:last-child) {
+      &::after {
+        content: '>';
+        padding: emCal(16, 10);
+      }
+    }
+  }
+}

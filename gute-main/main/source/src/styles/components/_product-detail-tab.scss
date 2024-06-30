@@ -1,0 +1,68 @@
+.shop-detail-tab {
+  margin-top: remCal(60);
+  margin-bottom: remCal(60);
+  &__header {
+    margin-bottom: emCal(16, 40);
+    &-item {
+      display: inline-block;
+      cursor: pointer;
+      @include typo($fsz: emCal(16, 18), $color: setSchemaColor(gray, regular));
+      &.react-tabs__tab--selected {
+        color: setSchemaColor(gray);
+      }
+      &:not(:last-child) {
+        margin-right: emCal(16, 50);
+      }
+    }
+  }
+  &__content {
+    &-item {
+      &:first-child {
+        p {
+          @include typo($fsz: emCal(16, 15), $lh: emCal(15, 27), $fw: 400);
+          margin-bottom: emCal(16, 30);
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+      &:last-child {
+        .review-block {
+          @include mq(md) {
+            margin-bottom: emCal(16, 30);
+          }
+          &__avatar {
+            height: emCal(16, 150);
+            width: emCal(16, 150);
+            float: left;
+            margin-right: emCal(16, 30);
+            border-radius: 999px;
+            overflow: hidden;
+            img {
+              @include imgCenter;
+            }
+          }
+          &__content {
+            h5 {
+              @include typo($fsz: emCal(16, 22), $fw: 700);
+              margin-bottom: emCal(22, 20);
+            }
+            p {
+              @include typo($fsz: emCal(16, 14), $lh: emCal(14, 24));
+              margin-bottom: emCal(16, 15);
+            }
+
+            .star {
+              display: inline-block;
+              margin-right: emCal(16, 10);
+              i {
+                font-size: emCal(16, 12);
+                color: #e3c01c;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

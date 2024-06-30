@@ -1,0 +1,77 @@
+footer {
+  font-size: 16px;
+  .footer-content {
+    padding: remCal(80) 0 remCal(60);
+    .footer-col {
+      @include mq(lg) {
+        margin-bottom: emCal(16, 40);
+      }
+      &__title {
+        display: flex;
+        align-items: center;
+        margin-bottom: emCal(16, 40);
+        font-size: 16px;
+        h5 {
+          @include typo($fsz: emCal(16, 18), $up: true);
+          margin-right: emCal(16, 15);
+        }
+        &:after {
+          content: '';
+          height: 1px;
+          flex-grow: 1;
+          display: block;
+          background-color: #e1e1e1;
+        }
+      }
+      &.-about {
+        p {
+          @include typo($fsz: emCal(16, 15), $lh: emCal(15, 26), $fw: 400, $color: setSchemaColor(gray, medium));
+        }
+        .contact-method {
+          margin-top: 15px;
+          p {
+            i {
+              width: 8px;
+              margin-right: emCal(16, 21);
+              color: setColor(primary);
+              text-align: center;
+              font-size: emCal(16, 15);
+            }
+          }
+        }
+      }
+      &.-util {
+        .tags-group {
+          margin-bottom: emCal(16, 35 - 15);
+          margin-right: emCal(16, -15);
+        }
+      }
+    }
+  }
+  .copyright {
+    padding: emCal(16, 25);
+    border-top: 1px solid setSchemaColor(gray, light);
+    text-align: center;
+    @include typo($fsz: emCal(16, 14), $fw: 400, $lh: emCal(14, 20));
+  }
+
+  $theme: 'secondary', 'third', 'fourth';
+
+  @each $color in $theme {
+    &.-theme--#{$color} {
+      .footer-content {
+        .footer-col {
+          &.-about {
+            .contact-method {
+              p {
+                i {
+                  color: setColor($color);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

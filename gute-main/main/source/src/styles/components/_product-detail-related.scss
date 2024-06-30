@@ -1,0 +1,7 @@
+.product-detail-related {
+  &__title {
+    @include typo($fsz: emCal(16, 22), $fw: 600, $up: true);
+    text-align: center;
+    margin-bottom: emCal(22, 40);
+  }
+}

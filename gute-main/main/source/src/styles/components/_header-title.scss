@@ -1,0 +1,17 @@
+.center-line-title {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: emCal(16, 40);
+  h5 {
+    @include typo($fsz: emCal(16, 18), $up: true, $fw: 600);
+    margin-right: emCal(16, 15);
+  }
+  &:after {
+    content: '';
+    height: 1px;
+    flex-grow: 1;
+    display: block;
+    background-color: #e1e1e1;
+  }
+}

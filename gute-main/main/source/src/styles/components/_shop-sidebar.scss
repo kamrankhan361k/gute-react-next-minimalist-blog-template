@@ -1,0 +1,45 @@
+.shop-sidebar {
+  padding-right: emCal(16, 30);
+  @include mq(md) {
+    padding-right: 0;
+  }
+  &__section {
+    .error {
+      @include typo($fsz: emCal(16, 14), $color: setColor(error), $fw: 300);
+      display: block;
+      margin-bottom: emCal(14, 10);
+    }
+    margin-bottom: remCal(60);
+    &.-price {
+      form {
+        display: flex;
+        align-items: center;
+        margin-bottom: emCal(16, 10);
+        span {
+          margin: 0 emCal(16, 10);
+          flex: 1 1 10%;
+          max-width: 10%;
+          text-align: center;
+        }
+        .range-input {
+          display: flex;
+          align-items: center;
+          background-color: setColor(light);
+          padding: emCal(16, 15) emCal(16, 20);
+          flex: 1 1 45%;
+          max-width: 45%;
+          input {
+            max-width: 100px;
+            @include input($pd: 0 10px, $width: 60px, $bg: transparent);
+            border: 0;
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

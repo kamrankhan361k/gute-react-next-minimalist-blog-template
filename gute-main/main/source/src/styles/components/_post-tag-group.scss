@@ -1,0 +1,10 @@
+.post-tags {
+  margin-bottom: emCal(16, 50);
+  &-group {
+    & > .btn {
+      &:not(:last-child) {
+        margin-right: emCal(16, 10);
+      }
+    }
+  }
+}

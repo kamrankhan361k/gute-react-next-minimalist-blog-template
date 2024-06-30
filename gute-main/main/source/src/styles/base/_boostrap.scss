@@ -1,0 +1,41 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1170px,
+  xxl: 1400px,
+  xxxl: 1770px,
+);
+
+$container-max-widths: (
+  sm: 100%,
+  md: 100%,
+  lg: 100%,
+  xl: 1170px,
+);
+
+.container-max {
+  max-width: 1920px;
+  @include make-container(30px);
+  @include media-breakpoint-up(xl) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  &.no-gutter {
+    @include make-container(0px);
+  }
+}
+
+.container-full {
+  max-width: 1920px;
+  &.no-gutter {
+    @include make-container(0px);
+  }
+}
+
+@import '~bootstrap/scss/bootstrap-grid';

@@ -1,0 +1,19 @@
+.alert-modal {
+  display: flex;
+  flex-direction: column;
+  &-header {
+    margin-bottom: emCal(16, 30);
+    h3 {
+      @include typo($fsz: emCal(16, 20));
+      margin-bottom: emCal(20, 15);
+    }
+    p {
+      @include typo($fw: 300, $color: setSchemaColor(gray, regular));
+    }
+  }
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: emCal(16, 5);
+  }
+}

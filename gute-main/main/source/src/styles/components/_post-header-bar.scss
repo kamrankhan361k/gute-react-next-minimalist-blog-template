@@ -1,0 +1,27 @@
+.post-header-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: emCal(16, 50);
+  &-content {
+    h5 {
+      @include typo($fsz: emCal(16, 22));
+      span {
+        margin-left: emCal(22, 5);
+        text-decoration: underline;
+      }
+    }
+  }
+  &-toogle-view {
+    margin-left: auto;
+    & > .btn {
+      color: setSchemaColor(gray, regular);
+      &.active {
+        color: setSchemaColor(gray, dark);
+      }
+      font-size: emCal(16, 18);
+      &:not(:last-child) {
+        margin-right: emCal(18, 20);
+      }
+    }
+  }
+}

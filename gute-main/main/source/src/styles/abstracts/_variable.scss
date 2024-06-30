@@ -1,0 +1,56 @@
+//Default transition
+$transition: 0.2s ease-in-out;
+
+//Font weight
+$weight: (
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+);
+
+//Default colors
+$colors: (
+  primary: #e49c86,
+  secondary: #11d2ef,
+  third: #537bdf,
+  fourth: #ffd661,
+  error: #ed4337,
+  success: #5cb85c,
+  light: #f5f5f5,
+);
+
+//Color schema
+$colorscheme: (
+  gray: (
+    base: #f5f5f5,
+    light: #e1e1e1,
+    regular: #888,
+    medium: #444,
+    dark: #111,
+  ),
+);
+
+//Cross-browser
+$prefixes: (webkit, moz, ms, o);
+
+//Rembaseline
+$rem-baseline: 16;
+
+//Font
+$font: (
+  color: #000,
+  family: sans-serif,
+  size: 16px,
+  line-height: 1,
+);
+
+//Breakpoint
+$breakpoint: (
+  sm: ' 576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
+  xxl: '1400px',
+  xxxl: '1770px',
+);

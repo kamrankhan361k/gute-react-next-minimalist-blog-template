@@ -1,0 +1,83 @@
+.post-related {
+  display: flex;
+  margin-bottom: emCal(16, 60);
+  &-item {
+    flex: 1 1 50%;
+    max-width: 50%;
+    @include mq(md) {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+    &:hover {
+      &.-prev {
+        a {
+          i {
+            margin-right: emCal(16, 20);
+          }
+        }
+      }
+      &.-next {
+        a {
+          i {
+            margin-left: emCal(16, 20);
+          }
+        }
+      }
+    }
+    a {
+      margin-bottom: emCal(16, 20);
+      display: block;
+      @include link(setSchemaColor(gray), setColor(primary), $fsz: emCal(16, 15), $up: true, $fw: 600);
+      i {
+        @include prefix(transition, $transition);
+      }
+    }
+    &__content {
+      display: flex;
+      img {
+        @include imgCenter(emCal(16, 70), emCal(16, 105));
+        border-radius: emCal(16, 3);
+      }
+      .post-card {
+        .card-content__title {
+          font-size: emCal(16, 18);
+        }
+      }
+    }
+    &.-prev {
+      a {
+        i {
+          margin-right: emCal(16, 10);
+        }
+      }
+      .post-related-item__content {
+        img {
+          margin-right: emCal(16, 23);
+        }
+      }
+    }
+    &.-next {
+      a {
+        text-align: right;
+        i {
+          margin-left: emCal(16, 10);
+        }
+      }
+      .post-related-item__content {
+        img {
+          margin-left: emCal(16, 23);
+        }
+      }
+    }
+  }
+  @include mq(sm) {
+    flex-direction: column;
+    &__item {
+      flex: 1 1 100%;
+      max-width: 100%;
+      &.-prev {
+        margin-bottom: emCal(16, 30);
+      }
+    }
+  }
+}

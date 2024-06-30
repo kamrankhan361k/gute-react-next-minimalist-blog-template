@@ -1,0 +1,684 @@
+.post-card {
+  font-size: 16px;
+  @include mq(lg) {
+    font-size: 15px;
+  }
+  @include mq(sm) {
+    font-size: 14px;
+  }
+
+  &.-full {
+    @include mq(md) {
+      font-size: 14px;
+    }
+    .card-content {
+      padding: 0 emCal(16, 30);
+      @include mq(md) {
+        padding: 0;
+        &__description {
+          display: none;
+        }
+        .card-content__info {
+          margin-bottom: emCal(16, 20);
+          // justify-content: space-around;
+          i {
+            margin-right: emCal(16, 5);
+            margin-bottom: emCal(16, 10);
+          }
+          &-item {
+            margin-right: 0;
+          }
+        }
+      }
+      &__title {
+        font-size: emCal(16, 26);
+        line-height: emCal(26, 32);
+        margin-bottom: emCal(26, 10);
+      }
+    }
+  }
+  &.-audio {
+    // background-color: setColor(light);
+    // padding: emCal(16, 40);
+    // border-radius: emCal(16, 5);
+    @include mq(lg) {
+      padding: emCal(16, 30) emCal(16, 25);
+    }
+    @include mq(md) {
+      padding: emCal(16, 25) emCal(16, 10);
+    }
+    .player-wrapper {
+      position: relative;
+      padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+      width: 100%;
+      height: 100%;
+    }
+
+    .react-player {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100% !important;
+      width: 100% !important;
+    }
+  }
+  &.-video {
+    .player-wrapper {
+      position: relative;
+      padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+      width: 100%;
+      height: 100%;
+    }
+
+    .react-player {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100% !important;
+      width: 100% !important;
+    }
+  }
+  &.-center {
+    .card-content {
+      text-align: center;
+      &__info {
+        justify-content: center;
+      }
+    }
+  }
+  &.-right {
+    .card-content {
+      text-align: right;
+      &__info {
+        justify-content: flex-end;
+      }
+    }
+  }
+  &.-inner-text {
+    position: relative;
+    border-radius: emCal(16, 5);
+    overflow: hidden;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 0.8) 100%
+      );
+      z-index: 2;
+    }
+    .card-cover {
+      margin-bottom: 0;
+      height: 100%;
+    }
+    .card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 65%;
+      margin: 0 auto;
+      z-index: 3;
+      padding-bottom: emCal(16, 30);
+
+      &__category {
+        color: #fff;
+      }
+      &__title {
+        color: #fff;
+      }
+      &__info {
+        &-item__author {
+          a {
+            color: #fff;
+          }
+        }
+        & > div {
+          p {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    &.-banner {
+      margin-bottom: emCal(16, 50);
+      .card-content {
+        &__title {
+          font-size: emCal(16, 30);
+          line-height: (30, 39);
+          margin-bottom: emCal(30, 16);
+          @include mq(md) {
+            font-size: emCal(16, 28);
+          }
+        }
+      }
+      @include mq(sm) {
+        &::before {
+          display: none;
+        }
+        .card-cover {
+          margin-bottom: emCal(16, 30);
+        }
+        .card-content {
+          position: unset;
+          max-width: 100%;
+          padding: 0 20px;
+          &__category {
+            color: setSchemaColor(gray, dark);
+          }
+          &__title {
+            color: setSchemaColor(gray, dark);
+          }
+          &__info {
+            & > .info__author {
+              p {
+                color: setSchemaColor(gray, dark);
+              }
+            }
+            p {
+              color: setSchemaColor(gray);
+            }
+          }
+        }
+      }
+    }
+    &.-middle {
+      &::before {
+        content: '';
+        background: #0008;
+        opacity: 0;
+        @include prefix(transition, $transition);
+      }
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+        .card-content {
+          opacity: 1;
+        }
+      }
+      .card-cover {
+        height: 100%;
+      }
+      .card-content {
+        padding-bottom: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        @include prefix(transition, $transition);
+      }
+      &.-small {
+        font-size: 14px;
+        .card-content {
+          color: red;
+          // &__category {
+          //   display: none;
+          // }
+          &__title {
+            font-size: emCal(14, 18);
+          }
+        }
+      }
+      &.-long {
+        .card-content {
+          max-width: 85%;
+        }
+      }
+      &.-big {
+        .card-content {
+          &__title {
+            font-size: emCal(14, 26);
+          }
+        }
+      }
+      @include mq(md) {
+        &::before {
+          opacity: 1;
+        }
+        .card-content {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &.-image-less {
+    display: flex;
+    align-items: center;
+    .category-icon {
+      margin-right: emCal(16, 40);
+      img {
+        @include imgCenter(emCal(16, 50), emCal(16, 50));
+      }
+    }
+    .card-content {
+      &__title {
+        font-size: emCal(16, 30);
+        line-height: emCal(30, 37);
+      }
+      @include mq(sm) {
+        &__info {
+          i {
+            margin-bottom: 1em;
+          }
+        }
+      }
+    }
+  }
+  &.-horizontal {
+    display: flex;
+    .card-cover,
+    .card-content {
+      flex: 1 1 50%;
+      max-width: 50%;
+    }
+    .card-cover {
+      margin-bottom: 0;
+    }
+
+    &.-small {
+      .card-cover {
+        margin-right: emCal(16, 30);
+      }
+      .card-content {
+        &__description {
+          @include overflowText(2);
+        }
+      }
+    }
+    &.-large {
+      .card-cover {
+        min-height: 100%;
+        height: auto;
+        border-radius: 0;
+      }
+      .card-content {
+        padding: emCal(16, 50);
+        background-color: setColor(light);
+        @include mq(sm) {
+          &__description {
+            display: none;
+          }
+        }
+      }
+      @include mq(lg) {
+        flex-direction: column;
+        .card-cover,
+        .card-content {
+          flex: 1 1 100%;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  &.-box-text {
+    position: relative;
+    .card-cover {
+      margin-bottom: 0;
+      position: inherit;
+    }
+    .card-content {
+      background-color: #fff;
+      padding: emCal(16, 40);
+      margin-top: emCal(16, -40);
+      z-index: 2;
+      position: inherit;
+      margin-left: emCal(16, 30);
+      margin-right: emCal(16, 30);
+    }
+  }
+  &.-tiny {
+    display: flex;
+    margin-bottom: emCal(16, 15);
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .card-cover {
+      border-radius: 3px;
+      margin-right: emCal(16, 20);
+      overflow: hidden;
+      height: 70px;
+      width: 105px;
+      flex: 1 1 30%;
+      max-width: 100px;
+      margin-bottom: 0;
+      img {
+        @include imgCenter();
+      }
+    }
+    .card-content {
+      flex: 1 1 70%;
+      max-width: 70%;
+      &__category {
+        display: none;
+      }
+      &__title {
+        font-size: emCal(16, 16);
+        margin-bottom: emCal(16, 5);
+        @include overflowText(2);
+      }
+      &__info {
+        i {
+          color: setColor(subTitle);
+        }
+      }
+    }
+  }
+  &-quote {
+    padding: emCal(16, 40);
+    background-color: setColor(lightOverlay);
+    border-radius: emCal(16, 5);
+    text-align: center;
+    .qoute__icon {
+      font-size: emCal(16, 16);
+      color: setSchemaColor(gray, dark);
+      height: emCal(16, 50);
+      width: emCal(16, 50);
+      background-color: setColor(primary);
+      border-radius: 999px;
+      margin: 0 auto;
+      margin-bottom: emCal(16, 30);
+      @include flexAlign;
+    }
+    .quote__content {
+      @include typo($fsz: emCal(16, 22), $lh: emCal(22, 27), $fw: 700, $color: setSchemaColor(gray, dark));
+      margin-bottom: emCal(22, 20);
+    }
+    .quote__author {
+      @include typo($fsz: emCal(16, 15), $lh: 1, $fw: 700, $up: true, $color: setSchemaColor(gray, dark));
+    }
+    &.-border {
+      border: 2px solid setColor(primary);
+      background-color: transparent;
+      padding-top: 0;
+      margin-top: emCal(16, 50);
+      .qoute__icon {
+        margin-top: emCal(16, -25);
+      }
+    }
+  }
+  &.-no-content-padding {
+    .card-content {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &:hover {
+    .card-cover {
+      & > img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .card-cover {
+    display: flex;
+    margin-bottom: emCal(16, 20);
+    border-radius: emCal(16, 5);
+    overflow: hidden;
+    img {
+      @include imgCenter;
+      @include prefix(transition, $transition);
+    }
+
+    &.-slide {
+      &.-slide--splited {
+        .card-cover__slide-item {
+          padding: 0 emCal(16, 5);
+          display: block;
+        }
+      }
+      .card-cover__slide-item {
+        padding: 0 0.1px;
+        display: block;
+      }
+      .slick-arrow {
+        background-color: #fff;
+        border: 0;
+        color: setColor(regular);
+        font-size: 1em;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 15px;
+        position: absolute;
+        z-index: 1;
+
+        &.slick-next {
+          right: 0;
+        }
+        &.slick-prev {
+          left: 0;
+        }
+        &.slick-disabled {
+          opacity: 0.3;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+  .card-content {
+    &__category {
+      @include typo($fsz: emCal(16, 12), $lh: 1, $fw: 700, $up: true);
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+      margin-bottom: emCal(16, 20);
+      padding: 0 emCal(16, 5);
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background-color: rgba($color: setColor(primary), $alpha: 0.6);
+        z-index: -1;
+        transform: translateY(40%);
+      }
+    }
+    &__title {
+      display: block;
+      margin-bottom: emCal(16, 10);
+      @include link(
+        setSchemaColor(gray, dark),
+        setColor(primary),
+        $fsz: emCal(16, 22),
+        $lh: emCal(16, 22),
+        $fw: 700,
+        $cpt: true
+      );
+      &:hover {
+        text-decoration: underline;
+      }
+      @include overflowText(2);
+    }
+    &__info {
+      display: flex;
+      align-items: center;
+      &-item__author {
+        a {
+          @include link(
+            $color: setSchemaColor(gray, regular),
+            $fw: 400,
+            $hvr-color: setColor(primary),
+            $fsz: emCal(16, 13)
+          );
+          display: inline-block;
+        }
+      }
+      & > div {
+        &:not(:last-child) {
+          margin-right: emCal(16, 15);
+        }
+        i,
+        p {
+          display: inline-block;
+          @include typo($fsz: emCal(16, 13), $lh: 1, $fw: 400, $color: setSchemaColor(gray, regular));
+        }
+        i {
+          color: setColor(primary);
+          margin-right: emCal(16, 10);
+          margin-bottom: emCal(16, 5);
+        }
+      }
+    }
+    &__description {
+      @include typo($fsz: emCal(16, 15), $lh: emCal(15, 26), $fw: 400);
+      margin-top: emCal(15, 28);
+      margin-bottom: emCal(15, 20);
+    }
+    .more-btn {
+      @include link(
+        setSchemaColor(gray, dark),
+        setColor(primary),
+        $fsz: emCal(16, 15),
+        $fw: 700,
+        $up: true,
+        $bottom-dash: true
+      );
+      &:after {
+        left: 0;
+      }
+    }
+  }
+
+  $theme: 'secondary', 'third', 'fourth';
+
+  @each $color in $theme {
+    &.-theme--#{$color} {
+      .card-content {
+        &__category {
+          &:after {
+            background-color: rgba($color: setColor($color), $alpha: 0.6);
+          }
+        }
+        &__title {
+          &:hover {
+            color: setColor($color);
+          }
+        }
+        &__info {
+          i {
+            color: setColor($color);
+          }
+          &-item__author {
+            a:hover {
+              color: setColor($color);
+            }
+          }
+        }
+        .more-btn {
+          &:hover {
+            color: setColor($color);
+          }
+          &:after {
+            background-color: setColor($color);
+          }
+        }
+      }
+    }
+  }
+}
+
+.post-trending {
+  font-size: 16px;
+  display: flex;
+  &-image {
+    height: emCal(16, 100);
+    width: emCal(16, 100);
+    margin-right: emCal(16, 25);
+    position: relative;
+    img {
+      @include imgCenter;
+      border-radius: 999px;
+    }
+    .rank {
+      position: absolute;
+      top: emCal(12, 3);
+      left: emCal(12, 3);
+      font-size: emCal(16, 12);
+      height: emCal(12, 20);
+      width: emCal(12, 20);
+      background-color: #000;
+      text-align: center;
+      line-height: emCal(12, 20);
+      border-radius: 999px;
+      color: #fff;
+    }
+  }
+  &-content {
+    flex: 1;
+    h5 {
+      @include typo($fsz: emCal(16, 12), $lh: 1, $fw: 700, $up: true);
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+      margin-bottom: emCal(16, 20);
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background-color: rgba($color: setColor(primary), $alpha: 0.6);
+        z-index: -1;
+        transform: translateY(40%);
+      }
+    }
+    a {
+      @include link(
+        setSchemaColor(gray),
+        setColor(primary),
+        $fsz: emCal(16, 16),
+        $lh: emCal(16, 20),
+        $fw: 700,
+        $cpt: true
+      );
+      @include overflowText(2);
+      margin-bottom: emCal(16, 10);
+    }
+
+    .info__time {
+      p {
+        display: inline-block;
+        @include typo($fsz: emCal(16, 13), $lh: 1, $fw: 400, $color: setSchemaColor(gray, regular));
+      }
+      i {
+        margin-right: emCal(12, 6);
+        font-size: emCal(16, 12);
+        color: setSchemaColor(gray, regular);
+      }
+    }
+  }
+
+  $theme: 'secondary', 'third', 'fourth';
+
+  @each $color in $theme {
+    &.-theme--#{$color} {
+      .post-trending-content {
+        h5 {
+          &:after {
+            background-color: rgba($color: setColor($color), $alpha: 0.6);
+          }
+        }
+        a {
+          &:hover {
+            color: setColor($color);
+          }
+        }
+      }
+    }
+  }
+}
